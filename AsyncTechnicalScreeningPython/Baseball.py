@@ -3,11 +3,11 @@ from flask_cors import CORS
 import requests
 import pyodbc
 # Create an instance of the Flask class that is the WSGI application.
-# The first argument is the name of the application module or package,
-# typically __name__ when using a single module.
+
 app = Flask(__name__)
 
 
+# Cors function to allow for client calls
 CORS(app, resources={r"/api/*": {"origins": "http://localhost:4200"}})
 # Flask route decorators map / and /hello to the hello function.
 # To add other resources, create functions that generate the page contents
@@ -55,16 +55,45 @@ def update_player(id):
     else:
         return jsonify({"error": "Player not found"}), 404
 
+# Get all the data from the players table
+@app.route('/api/players/db', methods=['GET'])
+def get_player_data():
+  
 
-@app.route('/api/players/db/<int:id>', methods=['PUT'])
-def update_playerdb(id):
-    data = response.json(API_URL)
-    player = next((item for item in data if item["id"] == id), None)
-    if player:
-        player.update(request.json)
-        return jsonify(player)
-    else:
-        return jsonify({"error": "Player not found"}), 404
+    try:
+        # Establish a connection to the SQL Server
+        conn = get_connection()
+
+        # Create a cursor object
+        cursor = conn.cursor()
+
+        # Define the SQL query
+        sql_query = "SELECT * FROM players"
+
+        # Execute the query
+        cursor.execute(sql_query)
+
+        # Fetch all rows from the executed query
+        rows = cursor.fetchall()
+
+        # Get column names
+        columns = [column[0] for column in cursor.description]
+
+        # Convert rows to list of dictionaries
+        data = [dict(zip(columns, row)) for row in rows]
+
+        # Convert data to JSON format
+        json_data = json.dumps(data, indent=4)
+
+        return json_data
+
+    except pyodbc.Error as e:
+        return f"Error connecting to the database: {e}"
+
+    finally:
+        # Close the cursor and connection
+        cursor.close()
+        conn.close()
 
 
 # Create (Insert a New Player) into the current database s
@@ -81,8 +110,8 @@ def create_player():
     return jsonify({"message": "Player added successfully!"}), 201
 
 # Delete (Remove Player Data)
-@app.route('/api/players/db/<name>', methods=['DELETE'])
-def delete_player(name):
+@app.route('/api/players/db/remove/<name>', methods=['DELETE'])
+def delete_playerdb(name):
     conn = get_connection()
     cursor = conn.cursor()
     sql = "DELETE FROM Players WHERE Name = ?"
@@ -94,7 +123,7 @@ def delete_player(name):
 
 # Update (Modify Player Data)
 @app.route('/api/players/db/<name>', methods=['PUT'])
-def update_player(name):
+def update_playerdb(name):
     player = request.json
     conn = get_connection()
     cursor = conn.cursor()
