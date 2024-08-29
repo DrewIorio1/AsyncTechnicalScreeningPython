@@ -14,6 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution-Files", "Solution-
 		Solution-Files\1.Create-Baseball-DB.sql = Solution-Files\1.Create-Baseball-DB.sql
 		Solution-Files\2.Create-Players-Table.sql = Solution-Files\2.Create-Players-Table.sql
 		Solution-Files\3.Bulk-Load-Player-Data.sql = Solution-Files\3.Bulk-Load-Player-Data.sql
+		Solution-Files\4.CRUD-Statements.sql = Solution-Files\4.CRUD-Statements.sql
 	EndProjectSection
 EndProject
 Global
