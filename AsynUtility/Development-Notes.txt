@@ -1,0 +1,9 @@
+﻿1.	Packages added to run the  Asynch Utility
+
+	dotnet add package Microsoft.EntityFrameworkCore				-  Core package for Entity Framework Core.
+	dotnet add package Microsoft.EntityFrameworkCore.SqlServer		-  Provider for SQL Server.
+	dotnet add package Microsoft.EntityFrameworkCore.Tools			- Used for migrations
+
+2. Assumption	
+	
+	A database called “Baseball” is created prior to running the utility.

@@ -1,0 +1,15 @@
+<!-- src/app/player-dialog/player-dialog.component.html -->
+<form name="myForm" (ngSubmit)="onSave(inYear.value, inAge.value, inHits.value, inBats.value )">
+  <div class="dialog-backdrop" >
+    <div class="dialog">
+      <h1>Players {{ data.Player }} and Rank {{data.Rank}}</h1>
+      <p>Year Achived: <input #inYear id="inYear"  value="{{data.Year}}" [disabled]="!isEditMode" required />  </p>
+      <p>Age That Year: <input #inAge name="inAge"  value="{{ data.AgeThatYear }}" [disabled]="!isEditMode" ngModel />  </p>
+      <p>Hits: <input name="inHits" #inHits value="{{data.Hits}}" [disabled]="!isEditMode" ngModel required /></p>
+      <p>Bats: <input name="inBats" #inBats   value="{{data.Bats}}" [disabled]="!isEditMode" ngModel required /></p>
+
+      <br />
+      <button (click)="onClose()">Close</button>&nbsp;&nbsp;<button type="submit" (click)="onSave(inYear.value,  inAge.value, inHits.value,  inBats.value )" [disabled]="!isEditMode"> Save</button>
+    </div>
+  </div>
+</form>

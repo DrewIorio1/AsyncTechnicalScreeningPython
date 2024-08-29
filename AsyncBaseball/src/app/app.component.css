@@ -1,0 +1,81 @@
+/*
+    Templete Style go from outside to indsid components
+    1 - Container that is use for controls with boarder
+    2 - Div/Table alignment and style
+    3 - Button styles and text
+
+
+*/
+
+.container {
+  justify-content: center;
+  align-items: flex-start;
+  background-color: white;
+}
+
+.div-table {
+  display: table;
+  width: auto;
+  background-color: #eee;
+  border: 1px solid #666666;
+  border-spacing: 5px; /* cellspacing:poor IE support for  this */
+}
+
+.table-header {
+  display: table-header-group;
+  background-color: #f0f0f0;
+}
+
+.header-cell {
+  display: table-cell;
+  padding: 10px;
+  text-align: left;
+  font-size: 14px;
+  font-style: italic;
+}
+
+.table-body {
+  display: table-row-group;
+}
+
+.div-table-row {
+  display: table-row;
+  width: auto;
+  clear: both;
+  border: 1px solid #666666;
+}
+
+.div-table-col {
+  float: left; /* fix for  buggy browsers */
+  display: table-column;
+  width: 140px;
+  border-bottom-width: 1px;
+}
+
+
+button {
+  margin: 2px;
+}
+
+.button-2 {
+  background-color: #669999;
+  border-radius: 8px;
+  border-width: 0;
+  color: #333333;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 10px 12px;
+  text-align: center;
+  transition: all 200ms;
+  vertical-align: baseline;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}

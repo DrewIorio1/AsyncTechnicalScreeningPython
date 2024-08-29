@@ -1,0 +1,41 @@
+
+<style>
+  /*
+      Css used for the column data for the table
+
+  */
+  .span-data {
+    text-decoration: underline;
+  }
+  .span-data-cols {
+    padding-right: 100px;
+    padding-left: 42px;
+  }
+
+</style>
+<div class="container">
+  <h1>Baseball Players Stats</h1>
+  <div class="div-table">
+    <div class="table-header">
+      <div class="header-cell">
+        <span style="" class="span-data">  Rank </span>
+        <span class="span-data span-data-cols" >  Player </span>
+        <span class="span-data span-data-cols">  Options </span>
+      </div>
+   
+    </div>
+    <div class="table-body" >
+    <div class="div-table-row" *ngFor="let player of players">
+      <div class="div-table-col" style="width:30px; padding-left:30px"> {{ player.Rank }} </div>
+      <div class="div-table-col"> {{ player.Player }}</div>
+
+        <div class="div-table-col">
+          <button (click)="showDescription(player)" class="custom-btn button-2">Show Details</button>
+        </div>
+        <div class="div-table-col">
+          <button (click)="editPlayer(player)" class="custom-btn button-2">Edit</button>
+        </div>
+      </div>
+      </div>
+  </div>
+</div>
