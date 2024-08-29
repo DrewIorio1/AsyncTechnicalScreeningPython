@@ -9,6 +9,13 @@ Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "AsyncBaseball", "AsyncBaseb
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsynUtility", "AsynUtility\AsynUtility.csproj", "{D6220C61-2C96-491B-A009-57E6EF064A9C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution-Files", "Solution-Files", "{40D23FF4-29BC-4810-ACEE-74223A7CD7C5}"
+	ProjectSection(SolutionItems) = preProject
+		Solution-Files\1.Create-Baseball-DB.sql = Solution-Files\1.Create-Baseball-DB.sql
+		Solution-Files\2.Create-Players-Table.sql = Solution-Files\2.Create-Players-Table.sql
+		Solution-Files\3.Bulk-Load-Player-Data.sql = Solution-Files\3.Bulk-Load-Player-Data.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
