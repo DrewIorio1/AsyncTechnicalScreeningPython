@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace AsynUtility
 {
+    /// <summary>
+    /// Player model for loading bulk data into sql server or other connections if applicable
+    /// </summary>
     public class Player
     {
         public int? Rank { get; set; }
